@@ -1,27 +1,12 @@
 RewriteEngine On
 
-# Set default landing page
+# 1. Serve landing page when root is accessed
 DirectoryIndex front-end/landing-page.html
 
-# Redirect all requests to landing page (avoid loop)
-RewriteCond %{REQUEST_URI} !^/front-end/landing-page\.html$
-RewriteRule ^(.*)$ /front-end/landing-page.html [L]
+# 2. Exclude actual files and folders (CSS/JS/images)
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
 
-RewriteEngine On
-
-# Hide .php extension
-RewriteCond %{REQUEST_FILENAME}.php -f
-RewriteRule ^([^\.]+)$ $1.php [L]
-
-# Hide .html extension
-RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^([^\.]+)$ $1.html [L]
-
-# Redirect root to landing page
-RewriteRule ^$ front-end/landing-page.html [L]
-
-# Remove /front-end/ from URL
-RewriteCond %{REQUEST_URI} !^/front-end/
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
+# 3. Redirect all other requests to front-end folder
 RewriteRule ^(.*)$ front-end/$1 [L]
