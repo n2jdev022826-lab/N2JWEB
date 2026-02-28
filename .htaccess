@@ -1,0 +1,27 @@
+RewriteEngine On
+
+# Set default landing page
+DirectoryIndex front-end/landing-page.html
+
+# Redirect all requests to landing page (avoid loop)
+RewriteCond %{REQUEST_URI} !^/front-end/landing-page\.html$
+RewriteRule ^(.*)$ /front-end/landing-page.html [L]
+
+RewriteEngine On
+
+# Hide .php extension
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^\.]+)$ $1.php [L]
+
+# Hide .html extension
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([^\.]+)$ $1.html [L]
+
+# Redirect root to landing page
+RewriteRule ^$ front-end/landing-page.html [L]
+
+# Remove /front-end/ from URL
+RewriteCond %{REQUEST_URI} !^/front-end/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ front-end/$1 [L]
