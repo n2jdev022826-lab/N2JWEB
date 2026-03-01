@@ -1,12 +1,18 @@
 RewriteEngine On
+RewriteBase /N2JWEB/
 
-# 1. Serve landing page when root is accessed
-DirectoryIndex front-end/landing-page.html
+# 1. Hide .html from URL (redirect if user types it)
+RewriteCond %{THE_REQUEST} \.html [NC]
+RewriteRule ^(.*)\.html$ /N2JWEB/$1 [R=301,L]
 
-# 2. Exclude actual files and folders (CSS/JS/images)
+# 2. Exclude real files/folders
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
-# 3. Redirect all other requests to front-end folder
-RewriteRule ^(.*)$ front-end/$1 [L]
+# 3. Serve HTML from front-end folder
+RewriteCond %{DOCUMENT_ROOT}/N2JWEB/front-end/$1.html -f
+RewriteRule ^([^/.]+)$ front-end/$1.html [L]
+
+# 4. Default landing page
+DirectoryIndex front-end/splash.html

@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+      background-color:rgb(96, 96, 96);
+}
+
+header {
+  position: relative;
+  width: 100%;
+  height: 80px;
+}
+
+header h2 {
+  position: absolute;
+  left: 10%;
+  bottom: 1rem;
+  font-size: 1.6rem;
+}
+
+/* Splash screen */
+.intro {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #1b1b1b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* stack image above text */
+  opacity: 1;
+  transition: opacity 1s ease, transform 1s cubic-bezier(0.4,0,0.2,1);
+}
+
+.intro.hide {
+  opacity: 0;
+  transform: translateY(-40px);
+}
+
+/* Container to align logo + text */
+.splash-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Logo Image */
+.logo-image {
+  width: 150px;
+  height: auto;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-in-out;
+}
+
+/* Active state with drop shadow animation */
+.logo-image.active {
+  opacity: 1;
+  transform: translateY(0);
+  animation: imageDropShadow 3s ease-in-out;
+}
+
+/* Drop shadow animation */
+@keyframes imageDropShadow {
+  0% {
+    filter: drop-shadow(0 0 2px #fff) drop-shadow(0 0 5px #fff);
+  }
+  50% {
+    filter: drop-shadow(0 0 5px #fff) drop-shadow(0 0 10px #fff);
+  }
+  100% {
+    filter: drop-shadow(0 0 2px #fff) drop-shadow(0 0 5px #fff);
+  }
+}
+
+/* Text logo */
+.logo-header {
+  margin-top: 20px; /* space between image and text */
+  font-size: 2.5rem;
+  color: #fff;
+  display: flex;
+  gap: 10px; /* space between letters if needed */
+}
+
+.logo {
+  opacity: 0;
+  position: relative;
+  bottom: -20px;
+  transition: all 0.5s ease-in-out;
+}
+
+.logo.active {
+  bottom: 0;
+  opacity: 1;
+  animation: glow 1.5s infinite ease-in-out;
+}
+
+.logo.fade {
+  bottom: 100px;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+/* Glow animation */
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 5px #fff, 0 0 10px rgb(123, 255, 255), 0 0 20px #0ff;
+  }
+  50% {
+    text-shadow: 0 0 10px #fff, 0 0 25px #9bfcff, 0 0 45px #00f7ff;
+  }
+  100% {
+    text-shadow: 0 0 5px #fff, 0 0 10px #9bfcff, 0 0 20px #0ff;
+  }
+}
