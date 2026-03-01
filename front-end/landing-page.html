@@ -1,17 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>N2J</title>
-     <link rel="stylesheet" href="/N2JWEB/front-end/css/landing.css" />
-</head>
-<body>
-    <div class="landing-container">
-        <h1 class="landing-header">Welcome to <span class="logo">N2J</span><span class="logo">DEV</span></h1>
-        <p class="landing-description">Your one-stop solution for all your development needs.</p>
-        <a href="/N2JWEB/front-end/splash.html" class="cta-button">Get Started</a>
-    </div>
+    <link rel="stylesheet" href="/N2JWEB/front-end/css/landing.css" />
+    <link rel="icon" type="image/png" href="/N2JWEB/front-end/assets/images/N2JLogo.png" />
+  </head>
+  <body>
 
-</body>
+    <nav class="navbar">
+      <div class="logo">N2J</div>
+      <div class="burger" id="burger">&#9776;</div>
+      <!-- Hamburger Icon -->
+      <ul class="nav-links" id="nav-links">
+        <li><a class="active" href="#">Home</a></li>
+        <li><a href="about-page.html">About</a></li>
+        <li><a href="/app/front/projects.html">Projects</a></li>
+        <li><a href="/app/front/contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="flex-container">
+  <div class="left-column">
+    <h1>N2J DEV</h1> </br>
+    <h3><span class="typing-container" id="type"></span></h3> </br>
+    <p>
+    Welcome to N2J DEV, your one-stop destination for all things web development!
+    </p>
+  </div>
+  <div class="right-column">
+    <img src="/N2JWEB/front-end/assets/images/landingrobot.png" alt="Example Image">
+  </div>
+</div>
+
+    <script src="/N2JWEB/front-end/js/landing.js"></script>
+
+  </body>
 </html>
