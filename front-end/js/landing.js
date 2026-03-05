@@ -1,7 +1,7 @@
 const words = [
-    { text: "POS System", class: "color-web-dev", cursor: "#00c9c8" },
-    { text: "Inventory Management System", class: "color-graphics", cursor: "hotpink" },
-    { text: "CRM System", class: "color-analyst", cursor: "rgb(238, 215, 130)" }
+    { text: "WEB Development", class: "color-web-dev", cursor: "#00c9c8" },
+    { text: "UI/UX Design", class: "color-graphics", cursor: "hotpink" },
+    { text: "IT Support", class: "color-analyst", cursor: "rgb(238, 215, 130)" }
   ];
 
   let wordIndex = 0;

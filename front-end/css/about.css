@@ -1,0 +1,281 @@
+/* ==============================
+   Core Reset & Base
+================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-image: url('../designs/Images/BG.png'); /* Make sure path is correct */
+  background-size: cover;
+  min-height: 100vh;
+  overflow-x: hidden; /* prevent sideways scroll */
+  overflow-y: auto;   /* allow vertical scroll */
+  background-color: rgb(19, 19, 19);
+}
+
+/* ==============================
+   Navbar
+================================= */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgb(19, 19, 19);
+  box-shadow: 10px 0 10px black;
+  padding: 20px 40px;
+  color: white;
+  position: relative;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  animation: rainbowText 7s linear infinite;
+}
+
+.navbar .active {
+  color: #00c9c8;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #00c9c8;
+}
+
+/* ==============================
+   Hamburger Menu
+================================= */
+.burger {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: white;
+}
+
+/* ==============================
+   Main Layout
+================================= */
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  padding: 40px;
+  height: 80vh;
+}
+
+.left-column {
+  flex: 1;
+  color: azure;
+  padding: 20px;
+}
+
+.left-column h2 {
+  font-size: 4rem;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.left-column p {
+  font-size: 1.2rem;
+  color: #f0f0f0;
+  text-align: justify;
+  max-width: 600px;
+  line-height: 1.6;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.left-column i {
+  animation: rainbowText 7s linear infinite;
+}
+
+.right-column {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.blob-wrapper {
+  position: relative;
+  width: 500px;
+  height: 450px;
+}
+
+.blob-img-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: rainbowDropShadow 7s linear infinite;
+  justify-content: space-evenly; /* Even vertical spacing */
+}
+
+.circle {
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  margin-top: 10%;
+  margin-right: -70%;
+  object-fit: cover;
+  border: 4px solid white;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  transform: none; /* Reset */
+}
+
+/* ==============================
+   Decorative String Lines
+================================= */
+.string-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.string-line path {
+  stroke-dasharray: 8;
+  stroke-dashoffset: 0;
+  animation: dash-wave 2s linear infinite;
+  filter: drop-shadow(0 0 4px #00fff2);
+}
+
+@keyframes dash-wave {
+  to {
+    stroke-dashoffset: -16;
+  }
+}
+
+/* ==============================
+   Image Offsets
+================================= */
+.img1 { transform: translate(-40%, -15%); }
+.img2 { transform: translate(40%, -50%); }
+.img3 { transform: translate(-70%, -116%); }
+
+/* ==============================
+   Animations
+================================= */
+@keyframes rainbowText {
+  0%   { color: hsl(0, 100%, 70%); }
+  16%  { color: hsl(60, 100%, 70%); }
+  33%  { color: hsl(120, 100%, 70%); }
+  50%  { color: hsl(180, 100%, 70%); }
+  66%  { color: hsl(240, 100%, 70%); }
+  83%  { color: hsl(300, 100%, 70%); }
+  100% { color: hsl(360, 100%, 70%); }
+}
+
+@keyframes rainbowDropShadow {
+  0% {
+    filter: drop-shadow(20px 0px 30px hsl(0, 100%, 60%));
+  }
+  16% {
+    filter: drop-shadow(20px 0px 30px hsl(60, 100%, 60%));
+  }
+  33% {
+    filter: drop-shadow(20px 0px 30px hsl(120, 100%, 60%));
+  }
+  50% {
+    filter: drop-shadow(20px 0px 30px hsl(180, 100%, 60%));
+  }
+  66% {
+    filter: drop-shadow(20px 0px 30px hsl(240, 100%, 60%));
+  }
+  83% {
+    filter: drop-shadow(20px 0px 30px hsl(300, 100%, 60%));
+  }
+  100% {
+    filter: drop-shadow(20px 0px 30px hsl(360, 100%, 60%));
+  }
+}
+
+/* ==============================
+   Responsive Styles
+================================= */
+@media (max-width: 1024px) {
+  .left-column h2 { font-size: 3rem; }
+  .left-column p { font-size: 1rem; }
+  .blob-wrapper { width: 320px; height: 320px; }
+  .circle { width: 120px; height: 120px; }
+}
+
+@media (max-width: 768px) {
+  .flex-container {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    height: auto;
+  }
+
+  .left-column h2 {
+    text-align: left;
+    font-size: 2rem;
+    padding: 0 15px; /* small padding for spacing */
+  }
+
+  .left-column p {
+    text-align: justify;   /* block-style */
+    padding: 0 15px;       /* keep content away from edges */
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .right-column {
+    display: block;
+  }
+
+  .burger {
+    display: block;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background-color: rgb(19, 19, 19);
+    width: 100%;
+    overflow: hidden;
+
+    /* Start collapsed */
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: max-height 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+  }
+
+  .nav-links.open {
+    max-height: 300px; /* Enough space for all links */
+    opacity: 1;
+    transform: translateY(0);
+    padding: 20px 0;
+  }
+}
