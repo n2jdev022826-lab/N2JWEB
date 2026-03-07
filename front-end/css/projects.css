@@ -1,0 +1,374 @@
+/* ===========================
+   Core Reset & Base
+=========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-image: url('/N2JWEB/front-end/assets/images/BG.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Optional parallax */
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ===========================
+   Navbar
+=========================== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgb(19, 19, 19);
+  padding: 20px 40px;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  animation: rainbowText 7s linear infinite;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.nav-links li a:hover,
+.navbar .active {
+  color: #00c9c8;
+}
+
+/* Rainbow text animation */
+@keyframes rainbowText {
+  0%   { color: hsl(0, 100%, 70%); }
+  16%  { color: hsl(60, 100%, 70%); }
+  33%  { color: hsl(120, 100%, 70%); }
+  50%  { color: hsl(180, 100%, 70%); }
+  66%  { color: hsl(240, 100%, 70%); }
+  83%  { color: hsl(300, 100%, 70%); }
+  100% { color: hsl(360, 100%, 70%); }
+}
+
+/* Hamburger Menu */
+.burger {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: white;
+}
+
+/* ===========================
+   Page Title
+=========================== */
+.page-title {
+  text-align: center;
+  font-size: 3rem;
+  color: #ffffff;
+  margin: 50px 0 40px;
+  font-weight: bold;
+}
+
+/* ===========================
+   Project Grid & Card
+=========================== */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  padding: 0 60px 80px;
+  margin: 2rem 0;
+}
+
+.project-card {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  background-color: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease;
+}
+
+.card-image,
+.card-image-next {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-image {
+  transition: background-image 0s, opacity 0.6s ease, transform 0.5s ease;
+  z-index: 1;
+  opacity: 1;
+}
+
+.card-image-next {
+  opacity: 0;
+  transition: opacity 0.8s;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.card-description {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  width: 100%;
+  padding: 20px;
+  z-index: 2;
+  transform: translateY(5%);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.card-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.card-text {
+  display: none;
+  margin-top: 10px;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+.project-card:hover .card-text {
+  display: block;
+}
+
+.project-card h3 a {
+  color: #ffffff;
+  font-size: 1em;
+  text-decoration: none;
+}
+
+.project-card:hover .card-image {
+  opacity: 0.7;
+  transform: scale(1.1);
+}
+
+.project-card:hover .card-description {
+  transform: translateY(0);
+}
+
+/* ===========================
+   Custom Dropdown
+=========================== */
+.custom-dropdown {
+  position: relative;
+  display: inline-block;
+  margin: 2rem 0 0 4rem;
+}
+
+.dropdown-btn {
+  background: rgba(19, 19, 19, 0.85);
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 1em;
+  padding: 0.6em 2.5em 0.6em 1em; /* extra right padding for arrow */
+  cursor: pointer;
+  outline: none;
+  position: relative;
+
+  /* Make it flexible */
+  width: 100%;
+  max-width: 420px;   /* keeps nice size on desktop */
+  min-width: 250px;   /* prevents being too tiny */
+  text-align: left;
+
+  /* Allow wrapping */
+  white-space: normal;  
+  overflow: visible;
+  text-overflow: unset;
+  line-height: 1.3;
+}
+
+.dropdown-btn::after {
+  content: "▼";
+  position: absolute;
+  right: 1em;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: #fff;
+  pointer-events: none;
+}
+
+
+
+
+
+.dropdown-list {
+  display: none;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  width: 100%;
+  background: rgba(19, 19, 19, 0.92);
+  border-radius: 1em;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  z-index: 100;
+  padding: 0.5em 0;
+  backdrop-filter: blur(2px);
+}
+
+.dropdown-item {
+  color: #fff;
+  padding: 1em 1.5em;
+  cursor: pointer;
+  font-size: 1.2rem;
+  border-radius: 0.7em;
+  transition: background 0.2s;
+}
+
+.dropdown-item:hover {
+  background: rgba(0,201,200,0.18);
+}
+
+.custom-dropdown.open .dropdown-list {
+  display: block;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+@media (max-width: 992px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 2rem 60px;
+  }
+
+  .dropdown-btn {
+    width: 100%;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Burger menu */
+  .burger {
+    display: block;
+  }
+
+@media (max-width: 768px) {
+  .burger {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background-color: rgb(19, 19, 19);
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 0;
+    z-index: 10;
+
+    /* Animation setup */
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: max-height 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .nav-links.open {
+    max-height: 300px; /* enough for your menu items */
+    opacity: 1;
+    transform: translateY(0);
+    padding: 20px 0;
+  }
+}
+  .page-title {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+    .project-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+  
+  .custom-dropdown {
+    width: 100%;
+    margin: 1rem auto;
+  }
+
+  .dropdown-btn {
+    width: 100%;
+    max-width: none;
+    font-size: 1.2rem;
+
+    /* Rounded & smooth */
+    border-radius: 2em;
+    padding: 0.8em 2.5em 0.8em 1.2em;
+    background: rgba(25, 25, 25, 0.95);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+
+  .dropdown-btn:active {
+    transform: scale(0.98); /* smooth tap feedback */
+  }
+
+  .dropdown-btn::after {
+    font-size: 1.1rem;
+  }
+
+  .dropdown-list {
+    width: 100%;
+    border-radius: 1.5em;
+    margin-top: 0.5em;
+    font-size: 1rem;
+    background: rgba(30, 30, 30, 0.95);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+    overflow: hidden; /* keeps corners rounded */
+  }
+
+  .dropdown-list li {
+    padding: 0.8em 1.2em;
+    transition: background 0.2s ease;
+  }
+
+  .dropdown-list li:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}

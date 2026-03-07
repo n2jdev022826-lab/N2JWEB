@@ -1,6 +1,6 @@
-/* ==============================
+/* ===========================
    Core Reset & Base
-================================= */
+=========================== */
 * {
   margin: 0;
   padding: 0;
@@ -9,12 +9,14 @@
 
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-image: url('../designs/Images/BG.png'); /* Make sure path is correct */
+  background-image: url('/N2JWEB/front-end/assets/images/BG.png');
+  background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Optional parallax */
   min-height: 100vh;
-  overflow-x: hidden; /* prevent sideways scroll */
-  overflow-y: auto;   /* allow vertical scroll */
-  background-color: rgb(19, 19, 19);
+  width: 100%;
+  overflow-x: hidden;
 }
 
 /* ==============================
@@ -109,6 +111,7 @@ body {
 }
 
 .right-column {
+  margin-top: 50px;
   flex: 1;
   position: relative;
   display: flex;

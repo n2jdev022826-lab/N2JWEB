@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>N2J</title>
-    <link rel="stylesheet" href="/N2JWEB/front-end/css/landing.css" />
+    <link rel="stylesheet" href="/N2JWEB/front-end/css/projects.css" />
     <link rel="icon" type="image/png" href="/N2JWEB/front-end/assets/images/N2JLogo.png" />
   </head>
   <body>
@@ -14,16 +14,90 @@
       <div class="burger" id="burger">&#9776;</div>
       <!-- Hamburger Icon -->
       <ul class="nav-links" id="nav-links">
-        <li><a href="landing-page.html">Home</a></li>
+        <li><a href="home-page.html">Home</a></li>
         <li><a href="about-page.html">About</a></li>
         <li><a class="active">Projects</a></li>
         <li><a href="contact-page.html">Contact Us</a></li>
+        <li><a href="team.html">Our Team</a></li>
       </ul>
     </nav>
 
+<!--========================================   DROPDOWN   ==========================================-->
+<div class="custom-dropdown">
+  <button class="dropdown-btn" data-value="Projects">PROJECTS</button>
+  <div class="dropdown-list">
+    <div class="dropdown-item" data-value="Projects">PROJECTS</div>
+    <div class="dropdown-item" data-value="Layout">LAYOUT</div>
+    <div class="dropdown-item" data-value="UI">UI</div>
+    <div class="dropdown-item" data-value="Presentation Design">PRESENTATIONS</div>
+  </div>
+</div>
+
+<!--========================================   PROJECTS   ==========================================-->
+<section class="project-grid">
+ <div class="project-card" data-category="Projects">
+    <div class="card-image" 
+    data-images="/N2JWEB/front-end/assets/projects/CPOS1.png,/N2JWEB/front-end/assets/projects/CPOS2.png,/N2JWEB/front-end/assets/projects/CPOS3.png"
+    style="background-image: url('/N2JWEB/front-end/assets/projects/CPOS1.png');">
+    <div class="card-image-next"></div>
+  </div>
+  <div class="card-description">
+    <span class="card-title"><h3><a href="https://www.figma.com/proto/qjXAkfPGgvF0VKvOGYXYWe/CLINIC-POS?node-id=2-2&p=f&t=80NiAt9PQPaSts2E-1&scaling=contain&content-scaling=fixed&page-id=0%3A1">CLINIC POS SYSTEM</a></h3></span>
+    <span class="card-text">A Clinic POS System that manages patient transactions, medicine inventory, billing, and sales records while tracking product availability, expiry dates, and stock movement within the clinic.</span>
+  </div>
+</div>
+
+ <div class="project-card" data-category="Projects">
+    <div class="card-image" 
+    data-images="/N2JWEB/front-end/assets/projects/GSPOS1.png,/N2JWEB/front-end/assets/projects/GSPOS2.png,/N2JWEB/front-end/assets/projects/GSPOS3.png"
+    style="background-image: url('/N2JWEB/front-end/assets/projects/GSPOS1.png');">
+    <div class="card-image-next"></div>
+  </div>
+  <div class="card-description">
+    <span class="card-title"><h3><a href="https://www.figma.com/proto/eKvn5OWI07oCRGspq5oXzE/GAS-POS?node-id=2-2&p=f&t=3NnxuljzC1bd6oy8-1&scaling=contain&content-scaling=fixed&page-id=0%3A1">GAS STATION POS</a></h3></span>
+    <span class="card-text">A Gas Station POS System that manages fuel sales, product inventory, cashier transactions, and payment records while tracking stock levels, pump transactions, and daily sales reports.</span>
+  </div>
+</div>
+
+</section>
 
 
-    <script src="/N2JWEB/front-end/js/landing.js"></script>
 
-  </body>
+</body>
+
+<script>
+   const burger = document.getElementById('burger');
+   const navLinks = document.getElementById('nav-links');
+
+   burger.addEventListener('click', () => {
+     navLinks.classList.toggle('open');
+   });
+
+   // Improved smooth slideshow for card images (no grey flash)
+   document.querySelectorAll('.card-image').forEach(card => {
+  const images = card.dataset.images ? card.dataset.images.split(',') : [];
+  if (images.length < 2) return;
+
+  let idx = 0;
+  const nextDiv = card.querySelector('.card-image-next');
+  nextDiv.style.backgroundImage = '';
+
+  setInterval(() => {
+    const nextIdx = (idx + 1) % images.length;
+    // Preload next image
+    const img = new Image();
+    img.src = images[nextIdx];
+    img.onload = () => {
+      nextDiv.style.backgroundImage = `url('${images[nextIdx]}')`;
+      nextDiv.style.opacity = 1;
+      setTimeout(() => {
+        card.style.backgroundImage = `url('${images[nextIdx]}')`;
+        nextDiv.style.opacity = 0;
+        idx = nextIdx;
+      }, 800); // match transition duration
+    };
+  }, 2500);
+   });
+</script>
+
 </html>

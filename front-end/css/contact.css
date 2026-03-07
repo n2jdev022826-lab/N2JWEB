@@ -1,0 +1,337 @@
+/* ===========================
+   Reset
+=========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===========================
+   Base Styles
+=========================== */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-image: url('/N2JWEB/front-end/assets/images/BG.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ===========================
+   Navbar
+=========================== */
+.navbar {
+  position: relative;
+  z-index: 2000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(19, 19, 19);
+  box-shadow: 10px 0px 10px black;
+  padding: 20px 40px;
+  color: white;
+}
+
+.navbar .active {
+  color: #00c9c8;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  animation: rainbowText 7s linear infinite;
+}
+
+.nav-links {
+  z-index: 1999;
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #00c9c8;
+}
+
+.burger {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: white;
+}
+
+/* ===========================
+   Contact Section
+=========================== */
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 40px;
+}
+
+.contact-map, 
+.contact-form {
+  flex: 1;
+  background: rgba(30, 30, 30, 0.85);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+}
+
+#map {
+  width: 100%;
+  height: 350px;
+  border-radius: 8px;
+  min-height: 350px;
+}
+
+.contact-form h2 {
+  color: #00c9c8;
+  margin-bottom: 10px;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  color: #fff;
+  margin-bottom: 6px;
+  margin-top: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  background: #222;
+  color: #fff;
+}
+
+.contact-form button {
+  background: #00c9c8;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
+
+.contact-form button:hover {
+  background: #009e9d;
+}
+
+/* ===========================
+   Social Links
+=========================== */
+.contact-social {
+  margin-top: 20px;
+  background: rgba(30, 30, 30, 0.85);
+  border-radius: 12px;
+  padding: 10px 20px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.contact-social h3 {
+  color: #00c9c8;
+  margin-bottom: 15px;
+}
+
+.social-links {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  position: relative;
+}
+
+.download-btn {
+  position: relative;
+  display: inline-block;
+}
+
+.download-btn .download-tooltip {
+  visibility: hidden;
+  opacity: 0;
+  width: 130px;
+  background: #222;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 6px 10px;
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  transition: opacity 0.2s;
+  font-size: 0.95rem;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.download-btn:hover .download-tooltip,
+.download-btn:focus .download-tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.social-links a img {
+  width: 32px;
+  height: 32px;
+  filter: brightness(0) invert(1);
+  transition: filter 0.2s, transform 0.2s;
+}
+
+.social-links a:hover img {
+  filter: brightness(0) invert(0.6) sepia(1) hue-rotate(160deg) saturate(4);
+  transform: scale(1.1);
+}
+
+/* ===========================
+   Animations
+=========================== */
+@keyframes rainbowText {
+  0%   { color: hsl(0, 100%, 70%); }
+  16%  { color: hsl(60, 100%, 70%); }
+  33%  { color: hsl(120, 100%, 70%); }
+  50%  { color: hsl(180, 100%, 70%); }
+  66%  { color: hsl(240, 100%, 70%); }
+  83%  { color: hsl(300, 100%, 70%); }
+  100% { color: hsl(360, 100%, 70%); }
+}
+
+@keyframes rainbowDropShadow {
+  0%   { filter: drop-shadow(20px 0px 30px hsl(0, 100%, 60%)); }
+  16%  { filter: drop-shadow(20px 0px 30px hsl(60, 100%, 60%)); }
+  33%  { filter: drop-shadow(20px 0px 30px hsl(120, 100%, 60%)); }
+  50%  { filter: drop-shadow(20px 0px 30px hsl(180, 100%, 60%)); }
+  66%  { filter: drop-shadow(20px 0px 30px hsl(240, 100%, 60%)); }
+  83%  { filter: drop-shadow(20px 0px 30px hsl(300, 100%, 60%)); }
+  100% { filter: drop-shadow(20px 0px 30px hsl(360, 100%, 60%)); }
+}
+
+/* ===========================
+   Responsive
+=========================== */
+@media (max-width: 900px) {
+  .contact-container {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+  .contact-map, 
+  .contact-form {
+    padding: 20px;
+  }
+  .contact-social {
+    margin-top: 20px;
+    padding: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Burger menu */
+  .burger {
+    display: block;
+  }
+
+@media (max-width: 768px) {
+  .burger {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%; /* push it below the navbar */
+    left: 0;
+    right: 0;
+    background-color: rgb(19, 19, 19);
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    z-index: 999;
+
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: max-height 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .nav-links.open {
+    max-height: 300px;
+    opacity: 1;
+    transform: translateY(0);
+    padding: 20px 0;
+  }
+}
+}
+
+@media (max-width: 600px) {
+  body {
+    overflow: auto;
+  }
+  .contact-container {
+    flex-direction: column;
+    gap: 12px;
+    padding: 8px;
+  }
+  .contact-map, 
+  .contact-form {
+    padding: 10px;
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  #map {
+    height: 180px !important;
+    min-height: 120px !important;
+    max-height: 220px;
+  }
+  html, body {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+}
+
+/* ===========================
+   Background Canvas
+=========================== */
+#bg-lines {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+body > *:not(#bg-lines):not(.navbar) {
+  position: relative;
+  z-index: 1;
+}
