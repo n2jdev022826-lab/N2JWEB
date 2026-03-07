@@ -34,6 +34,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // Redirect
   setTimeout(() => {
-    window.location.href = "/N2JWEB/home-page";
+    window.location.href = "../index.html";
   }, 4000);
 });

@@ -9,7 +9,7 @@
 
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-image: url('/N2JWEB/front-end/assets/images/BG.png');
+  background-image: url('../assets/images/BG.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
