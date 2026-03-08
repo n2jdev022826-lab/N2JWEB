@@ -65,39 +65,34 @@
 
 </body>
 
+<!-- improved slideshow (kept inline) -->
 <script>
-   const burger = document.getElementById('burger');
-   const navLinks = document.getElementById('nav-links');
+  document.querySelectorAll('.card-image').forEach(card => {
+    const images = card.dataset.images ? card.dataset.images.split(',') : [];
+    if (images.length < 2) return;
 
-   burger.addEventListener('click', () => {
-     navLinks.classList.toggle('open');
-   });
+    let idx = 0;
+    const nextDiv = card.querySelector('.card-image-next');
+    nextDiv.style.backgroundImage = '';
 
-   // Improved smooth slideshow for card images (no grey flash)
-   document.querySelectorAll('.card-image').forEach(card => {
-  const images = card.dataset.images ? card.dataset.images.split(',') : [];
-  if (images.length < 2) return;
-
-  let idx = 0;
-  const nextDiv = card.querySelector('.card-image-next');
-  nextDiv.style.backgroundImage = '';
-
-  setInterval(() => {
-    const nextIdx = (idx + 1) % images.length;
-    // Preload next image
-    const img = new Image();
-    img.src = images[nextIdx];
-    img.onload = () => {
-      nextDiv.style.backgroundImage = `url('${images[nextIdx]}')`;
-      nextDiv.style.opacity = 1;
-      setTimeout(() => {
-        card.style.backgroundImage = `url('${images[nextIdx]}')`;
-        nextDiv.style.opacity = 0;
-        idx = nextIdx;
-      }, 800); // match transition duration
-    };
-  }, 2500);
-   });
+    setInterval(() => {
+      const nextIdx = (idx + 1) % images.length;
+      const img = new Image();
+      img.src = images[nextIdx];
+      img.onload = () => {
+        nextDiv.style.backgroundImage = `url('${images[nextIdx]}')`;
+        nextDiv.style.opacity = 1;
+        setTimeout(() => {
+          card.style.backgroundImage = `url('${images[nextIdx]}')`;
+          nextDiv.style.opacity = 0;
+          idx = nextIdx;
+        }, 800);
+      };
+    }, 2500);
+  });
 </script>
+
+<!-- shared UI script -->
+<script src="js/landing.js"></script>
 
 </html>

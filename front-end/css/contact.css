@@ -259,12 +259,6 @@ body {
   .burger {
     display: block;
   }
-
-@media (max-width: 768px) {
-  .burger {
-    display: block;
-  }
-
   .nav-links {
     position: absolute;
     top: 100%; /* push it below the navbar */
@@ -289,7 +283,6 @@ body {
     transform: translateY(0);
     padding: 20px 0;
   }
-}
 }
 
 @media (max-width: 600px) {

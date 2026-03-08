@@ -30,7 +30,11 @@ body {
   box-shadow: 10px 0 10px black;
   padding: 20px 40px;
   color: white;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   z-index: 2000;
 }
 
@@ -140,6 +144,13 @@ body {
   height: 450px;
 }
 
+/* Decorative wrapper should not intercept clicks over navbar */
+.blob-wrapper { pointer-events: none; }
+.blob-img-container img { pointer-events: auto; }
+
+/* Keep page content visible below fixed navbar */
+body { padding-top: 80px; }
+
 .blob-img-container {
   position: relative;
   width: 100%;
@@ -239,7 +250,11 @@ body {
   .left-column h2 { font-size: 3rem; }
   .left-column p { font-size: 1rem; }
   .blob-wrapper { width: 320px; height: 320px; }
-  .circle { width: 120px; height: 120px; }
+    .circle {
+    width: 300px;
+    height: 300px;
+  }
+
 }
 
 @media (max-width: 768px) {
@@ -294,5 +309,36 @@ body {
     opacity: 1;
     transform: translateY(0);
     padding: 20px 0;
+  }
+  /* Center and enlarge logo on small screens */
+  .blob-wrapper {
+    width: 260px;
+    height: 260px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none; /* decorative only */
+  }
+
+  .blob-img-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+  }
+
+  .circle {
+    width: 300px;
+    height: 300px;
+    display: block;
+    margin: 0 auto;
+    margin-right: -40%;
+    border-radius: 50%;
+    object-fit: cover;
+    pointer-events: auto; /* allow clicks on the image if needed */
+    max-width: 100%;
   }
 }

@@ -13,6 +13,7 @@ const words = [
   const typeElement = document.getElementById("type");
 
   function type() {
+    if (!typeElement) return; // guard
     const current = words[wordIndex];
     const currentWord = current.text;
 
@@ -42,11 +43,13 @@ const words = [
     }
   }
 
-  type();
+  if (typeElement) type();
 
-   const burger = document.getElementById('burger');
+  // Burger toggle (run even if typing isn't present)
+  const burger = document.getElementById('burger');
   const navLinks = document.getElementById('nav-links');
-
-  burger.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-  });
+  if (burger && navLinks) {
+    burger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+  }
