@@ -1,0 +1,11 @@
+{
+  "rewrites": [
+    { "source": "/about-page", "destination": "/front-end/about-page.html" },
+    { "source": "/projects-page", "destination": "/front-end/projects-page.html" },
+    { "source": "/contact-page", "destination": "/front-end/contact-page.html" },
+    { "source": "/team", "destination": "/front-end/team.html" },
+    { "source": "/splash", "destination": "/front-end/splash.html" }
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
+}
