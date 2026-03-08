@@ -41,11 +41,7 @@
         <a href="mailto:fjustine920@gmail.com" title="Gmail">
           <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Gmail" />
         </a>
-        <!-- Download PDF Button -->
-        <a href="assets/RESUME - JUSTINE_FRANCISCO.pdf" download class="download-btn" title="Download Resume">
-          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/adobeacrobatreader.svg" alt="Download Resume" />
-          <span class="download-tooltip">Download Resume</span>
-        </a>
+       
       </div>
     </div>
   </div>
@@ -75,14 +71,14 @@
 
 <script>
   // Initialize Leaflet map
-  var map = L.map('map').setView([6.95508, 126.21655], 10);
+  var map = L.map('map').setView([6.960496, 126.204400], 10);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap contributors'
   }).addTo(map);
-  var marker = L.marker([6.954942, 126.183737]).addTo(map);
+  var marker = L.marker([6.959961, 126.203786]).addTo(map);
 
   // Address popup
-  var address = "Purok 3 Upper Tagawisan, Brgy. Badas, City of Mati, Davao Oriental 8200";
+  var address = "Madang, National Highway, Central, City of Mati, 8200 Davao Oriental";
   marker.bindPopup(address);
 
   marker.on('mouseover', function (e) {
