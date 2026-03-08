@@ -31,7 +31,7 @@ body {
   color: white;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   position: relative;
-  z-index: 1000;
+  z-index: 2000;
 }
 
 .navbar .active {
@@ -69,6 +69,8 @@ body {
   cursor: pointer;
   color: white;
 }
+/* ensure burger sits above other elements */
+.burger { position: relative; z-index: 2001; padding: 6px 8px; }
 
 /* ===========================
    Layout
